@@ -1,5 +1,5 @@
 [build]
-  publish = "dist/food-fighters"
+  publish = "dist/angular-14-example"
   command = "npm i && ng build"
 [[redirects]]
   from = "/*"
