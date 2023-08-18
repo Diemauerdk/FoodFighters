@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
-})
+import { AccountService } from './_services';
+
+@Component({ selector: 'app-root', templateUrl: 'app.component.html' })
 export class AppComponent {
-  title = 'FoodFighters';
+    constructor(protected accountService: AccountService) {}
 }
