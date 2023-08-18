@@ -17,11 +17,12 @@
         "experimentalDecorators": true,
         "moduleResolution": "node",
         "importHelpers": true,
-        "target": "es2020",
-        "module": "es2020",
-        "lib": ["es6", "dom"],
-        "typeRoots": [
-            "node_modules/@types"
+        "target": "ES2022",
+        "module": "ES2022",
+        "useDefineForClassFields": false,
+        "lib": [
+          "ES2022",
+          "dom"
         ],
         "paths": {
             "@app/*": ["src/app/*"],
