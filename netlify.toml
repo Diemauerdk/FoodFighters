@@ -1,7 +1,6 @@
 [build]
   publish = "dist/food-fighters"
-  command = "npm i"
-  command = "ng build --prod"
+  command = "npm i && ng build --prod"
 [[redirects]]
   from = "/*"
   to = "/index.html"
