@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { AccountService } from '@app/_services';
 
+
 @Component({ templateUrl: 'login.component.html' })
 export class LoginComponent {
     constructor(
@@ -18,10 +19,10 @@ export class LoginComponent {
 
     login() {
         this.accountService.login()
-            .subscribe(() => {
+            .subscribe(async () => {
                 // get return url from query parameters or default to home page
                 const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-                this.router.navigateByUrl(returnUrl);
+                await this.router.navigateByUrl(returnUrl);
             });
     }
 }

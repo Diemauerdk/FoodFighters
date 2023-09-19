@@ -12,13 +12,16 @@ import { JwtInterceptor, ErrorInterceptor, appInitializer } from './_helpers';
 import { AccountService } from './_services';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
+import { AngularFireModule } from '@angular/fire/compat'
+import { environment } from '@environments/environment';
 
 @NgModule({
     imports: [
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig)
     ],
     declarations: [
         AppComponent,
