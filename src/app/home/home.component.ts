@@ -18,17 +18,20 @@ export class HomeComponent {
           .pipe(first())
           .subscribe(async x => {
             this.account = x as Account;
-            const chef = new Chef();
-            chef.name = 'Chef ' + this.account.name;
-            chef.id = this.account.facebookId;
-            await this.chefService.Add<Chef>(chef);
-            const exists = await this.chefService.existsWithId<Chef>(this.account.facebookId);
-            if(exists === false) {
-              const chef = new Chef();
-              chef.name = 'Chef ' + this.account.name;
-              chef.id = this.account.facebookId;
-              await this.chefService.Add<Chef>(chef);
+
+            try {
+              const list = await this.chefService.GetAll<Chef>();
+              const exists = await this.chefService.existsWithId<Chef>(this.account.facebookId);
+              if(exists === false) {
+                const chef = new Chef();
+                chef.name = 'Chef' + this.account.name;
+                chef.id = this.account.facebookId;
+                await this.chefService.Add<Chef>(chef);
+              }
+            }catch (e) {
+              console.log(e);
             }
+
           });
     }
 

@@ -14,6 +14,7 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { AngularFireModule } from '@angular/fire/compat'
 import { environment } from '@environments/environment';
+import { ChefListComponent } from './pages/chef-list/chef-list/chef-list.component';
 
 @NgModule({
     imports: [
@@ -26,7 +27,8 @@ import { environment } from '@environments/environment';
     declarations: [
         AppComponent,
         HomeComponent,
-        LoginComponent
+        LoginComponent,
+        ChefListComponent
     ],
     providers: [
         { provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [AccountService] },

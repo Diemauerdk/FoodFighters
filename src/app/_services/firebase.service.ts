@@ -4,13 +4,15 @@ import {
     AngularFireObject,
   } from '@angular/fire/compat/database';
 import {map} from "rxjs";
+import {Chef} from "@app/_models";
 
 export abstract class FireBaseService {
     public abstract endpoint: string;
     constructor(private angularFireDatabase: AngularFireDatabase) {}
 
     async Add<T>(model: T) : Promise<void> {
-        return this.angularFireDatabase.object(`${this.endpoint}`).set(model);
+      const list = this.angularFireDatabase.list(this.endpoint)
+      list.push(model);
     }
 
     async Get<T>(key: string): Promise<AngularFireObject<T>> {
@@ -18,12 +20,22 @@ export abstract class FireBaseService {
     }
 
     async GetAll<T>(): Promise<T[] | undefined > {
-      return this.angularFireDatabase.list(this.endpoint).snapshotChanges()
-        .pipe(
-          map(snapshots => {
-            return snapshots.map(snapshot => snapshot.payload.val()  as T);
-          })
-        ).toPromise();
+      let listOfObjects: T[] = [];
+      const crap = this.angularFireDatabase.list(this.endpoint).snapshotChanges()
+        .subscribe(snapshots=>{
+          snapshots.forEach(snapshot => {
+            console.log('key: ' + snapshot.key);
+            listOfObjects.push(snapshot.payload.val() as T)
+          });
+        })
+
+      return listOfObjects;
+      // return this.angularFireDatabase.list(this.endpoint).snapshotChanges()
+      //   .pipe(
+      //     map(snapshots => {
+      //       return snapshots.map(snapshot => snapshot.payload.val()  as T);
+      //     })
+      //   ).toPromise();
     }
 
     async Update<T>(key: string, data: any): Promise<void> {
