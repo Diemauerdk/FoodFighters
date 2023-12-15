@@ -8,7 +8,7 @@ import {Chef} from "@app/_models";
 
 export abstract class FireBaseService {
     public abstract endpoint: string;
-    constructor(private angularFireDatabase: AngularFireDatabase) {}
+    constructor(protected angularFireDatabase: AngularFireDatabase) {}
 
     async Add<T>(model: T) : Promise<void> {
       const list = this.angularFireDatabase.list(this.endpoint)

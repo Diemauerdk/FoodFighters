@@ -1,0 +1,24 @@
+<div class="col-md-6 offset-md-3 mt-5 text-center">
+  <div class="card">
+    <h4 class="card-header">Create an account in the vast universe of Feast fighting</h4>
+    <div class="card-body">
+
+
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>User name</mat-label>
+          <input matInput placeholder="Enter User name" [(ngModel)]="account.userName" name="userName">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Enter Password" [(ngModel)]="account.password" name="password">
+        </mat-form-field>
+      </form>
+
+      <button mat-button color="primary" (click)="create()">
+        Create
+      </button>
+    </div>
+  </div>
+</div>

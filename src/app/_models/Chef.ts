@@ -1,4 +1,5 @@
 export class Chef {
-  id: string = '';
+  accountId: string = '';
   name: string = '';
+  password: string = '';
 }

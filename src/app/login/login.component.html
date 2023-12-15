@@ -1,11 +1,32 @@
 ﻿<div class="col-md-6 offset-md-3 mt-5 text-center">
     <div class="card">
-        <h4 class="card-header">Angular 14 Facebook Authentication</h4>
+        <h4 class="card-header">Login into the vast universe of Feast fighting</h4>
         <div class="card-body">
-            <button class="btn btn-facebook" (click)="login()">
-                <i class="fa fa-facebook me-1"></i>
-                Login with Facebook
+
+
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>User name</mat-label>
+              <input matInput placeholder="Enter User name" [(ngModel)]="userName" name="userName">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input matInput placeholder="Enter Password" [(ngModel)]="password" name="password">
+            </mat-form-field>
+          </form>
+
+          <button mat-button color="primary" (click)="login()">
+                Login
             </button>
+          <button mat-button color="primary" (click)="createAccount()">
+            Create account
+          </button>
+        <br/>
+          <p>Forgot password? Contact PO or QA.</p>
+          <br/>
+          <br/>
+          <p *ngIf="loginErrorMessage">{{loginErrorMessage}}</p>
         </div>
     </div>
 </div>

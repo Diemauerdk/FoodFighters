@@ -1,8 +1,8 @@
-﻿<!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark px-3" *ngIf="accountService.accountValue">
+﻿
+<nav class="navbar navbar-expand navbar-dark bg-dark px-3">
     <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-        <button class="btn btn-link nav-item nav-link" (click)="accountService.logout()">Logout</button>
+        <button *ngIf="authenticatedAccount" class="btn btn-link nav-item nav-link" (click)="logout()">Logout</button>
     </div>
 </nav>
 

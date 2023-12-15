@@ -1,7 +1,5 @@
-﻿export interface Account {
-    id: string;
-    facebookId: string;
-    name: string;
-    extraInfo: string;
-    token?: string;
+﻿export class Account {
+    id: string | undefined;
+    userName: string | undefined;
+    password: string | undefined;
 }
